@@ -1,147 +1,259 @@
-@media screen and (min-width: 768px) {
-  
-  body {
-      background-image: url('background.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      margin: 0;
-      position: fixed;
-      width: 100%;
-      height: 100%;
-  }
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
 
-  body:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: rgba(23, 23, 24, 0.8);
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-  }
-
-  /* Navigation styling */
-  .nav-bar-desktop {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 200px;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-      background-color: #000000;
-      color: white;
-      padding: 20px;
-      z-index: 2;
-      font-family: 'Roboto', sans-serif;
-  }
-
-  .logo-name {
-      margin: 20px 0;
-      font-size: 24px;
-      font-family: "Jura", sans-serif;
-  }
-
-  .nav-list {
-      padding: 0;
-      margin: 0;
-      list-style-type: none;
-  }
-
-  .nav-item {
-      margin: 15px 0;
-  }
-
-  .nav-link {
-      text-decoration: none;
-      color: white;
-      display: block;
-      padding: 10px;
-      transition: background-color 0.3s;
-      font-family: 'Roboto', sans-serif;
-      font-weight: 500;
-  }
-
-  .nav-link:hover {
-      background-color: rgba(234, 108, 11, 0.8);
-  }
-
-  .nav-wrap {
-      margin-left: 7%;
-      margin-top: 35vh;
-  }
-
-  /* Khoi VII and position fixed to bottom right */
-  .fixed-name {
-      position: absolute;
-      bottom: 3.7%;
-      right: 2%;
-      text-align: right;
-      color: white;
-  }
-
-  .fixed-name h1 {
-      font-family: 'Raleway', sans-serif;
-      font-weight: 100;
-      font-size: 3em;
-      margin: 0;
-  }
-
-  .fixed-name:hover h1 {
-      color: rgb(234, 108, 11);
-  }
-
-  .position {
-      font-family: 'Raleway', sans-serif;
-      font-style: italic;
-      font-size: 12px;
-  }
-
-  /* Quote centered in middle of the screen */
-  .centered-quote {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      font-size: 1.5em;
-      font-family: 'Raleway', sans-serif;
-  }
-
-  /* Animation for page entrance */
-  .fade-in {
-      animation: fadeIn 2s ease-in-out;
-  }
-
-  @keyframes fadeIn {
-      0% {
-          opacity: 0;
-      }
-
-      100% {
-          opacity: 1;
-      }
-  }
-
-  /* For screen readers */
-  .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-  }
+html {
+  scroll-behavior: smooth;
+  user-select: none;
 }
 
-/* Mobile Styles */
- .centered-quote-fade-in{
-  display: none;
+body {
+  background-color: #0a0a0c; /* darker background */
+  color: #FBFBFB;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+nav {
+  right: 2%;
+  width: 30%;
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 50px;
+  animation: appear 1.5s forwards;
+  z-index: 10; 
+  transition: opacity 0.4s ease;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #FBFBFB;
+  font-size: 1.15em;
+}
+/* Hero Section */
+.hero {
+  position: relative; /* So the ::after can overlay it */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  box-sizing: border-box;
+  background: radial-gradient(ellipse at bottom, #1E222B 0%, #090a0f 100%)
+}
+
+/* The dark fade overlay */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  /* Fade from black at bottom (20%) to transparent at top (80%) */
+  background: linear-gradient(
+    to top,
+    #0A0A0C 15%,
+    rgba(0, 0, 0, 0) 40%
+  );
+}
+
+/* Ensure your hero text/content is above the overlay */
+.hero .content {
+  position: relative;
+  z-index: 2;
+}
+
+.content{
+  display: inline-flex;
+  flex-direction: column;
+  margin: 4%;
+}
+.headline {
+  font-size: min(5vw, 70px);
+  background: linear-gradient(to right, #202020, #ffffff 30%, rgba(217, 206, 206, 0) 50%, #000 70%, #232323); /*  Re-animate  */
+  animation: shine 1ms ease-out forwards;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+p {
+  font-size: 1.2rem;
+  opacity: 0.5;
+}
+.p2{
+  text-align: center;
+  
+
+}
+.page1 {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #FFFFFF;
+  background-color: #0a0a0c;
+  
+}
+
+
+
+/* Hamburger Icon */
+.menu {
+  transform: scaleX(-1);
+  z-index: 9999; /* On top of everything */
+  position: fixed;
+  right: 2%;
+  top: 2%;
+  width: 50px;
+  height: 50px;
+  visibility: hidden;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.5s ease;
+}
+
+/* Full-page container - covers the entire page */
+.menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+
+  /* Start as a tiny circle at top-right (near hamburger).
+     We'll animate to fill entire screen. */
+  clip-path: circle(0% at 95% 5%);
+
+  background-color: rgba(0, 0, 0, 0.95); /* Very dark overlay */
+  transition: clip-path 0.8s ease;
+  z-index: 9998; /* Just behind the hamburger icon (which is 9999) */
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* When .show-menu is added, expand clip-path to cover entire page */
+.menu-container.show-menu {
+  clip-path: circle(150% at 95% 5%);
+}
+
+/* Menu Items Container */
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+}
+
+/* Links inside side nav: bigger text */
+.a1 {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 2rem; /* bigger text */
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+}
+
+/* Keep your original "hover" transitions for index + subtitles */
+.menu-link {
+  display: flex;
+  align-items: center;
+}
+
+.menu-index {
+  font-size: 1rem; /* bigger than 10px */
+  font-weight: 300;
+  margin-right: 15px;
+  opacity: 1;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.1s, opacity 0.5s ease;
+}
+
+/* Title + subtitle bigger or smaller as you like */
+.menu-title {
+  font-size: 1.2rem;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+}
+
+.menu-subtitle {
+  font-size: 1rem;
+  opacity: 0.7;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+}
+
+/* Hover Effects */
+.menu-items:hover a:not(:hover) {
+  opacity: 0.4;
+}
+
+.a1:hover {
+  opacity: 1;
+}
+
+.a1:hover .menu-index {
+  transform: translate3d(10px, 0, 0);
+  opacity: 0;
+}
+
+.a1:hover .menu-title {
+  transform: translate3d(6px, 0, 0);
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.a1:hover .menu-subtitle {
+  transform: translate3d(6px, 0, 0);
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1) 0.1s;
+}
+
+/* Example of your custom text "shine" animation */
+@keyframes shine {
+  0% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media screen and ( max-width: 1025px) {
+  nav{
+    display: none;
+  }
+  
+}
+
+
+.page2{
+  width: 100%;
+  height: 100vh;
+  font-family: "Jura", serif;
+  color: 2px 2px white;
+  text-shadow: white ;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
