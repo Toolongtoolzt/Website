@@ -1,259 +1,340 @@
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+@media only screen and (min-width: 900px) {
 
-html {
-  scroll-behavior: smooth;
-  user-select: none;
+
+@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
+:root{
+  --darken: 
+    --black: #212121; 
+    --white: #EEEEEE;
+    --text: #f7f7f7;
+    --level1: 4px;
+    --level2: 8px; 
+    --level3: 16px; 
+    --level4: 24px; 
+    --level5: 32px;
+    --level6: 48px; 
+    --level7: 64px;
+    --level8: 82px;
+}
+*{
+    padding: 0px;
+    margin: 0px;
+    -webkit-user-select: none;
+    user-select: none;         
 }
 
-body {
-  background-color: #0a0a0c; /* darker background */
-  color: #FBFBFB;
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
+
+.text{
+  display: none;
 }
 
-nav {
-  right: 2%;
-  width: 30%;
-  position: fixed;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  height: 50px;
-  animation: appear 1.5s forwards;
-  z-index: 10; 
-  transition: opacity 0.4s ease;
+
+
+body{
+    background-color: black;
+    color: white;
+    margin: 0px;
+    padding: 0px; 
+    top: 0px;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    overflow-y: scroll;
+
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+.P-1{
+    position: fixed;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh; 
+    padding: 0;
+    color: var(--white);
+    text-shadow: 0 0 10px var(--black);
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-nav ul {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #FBFBFB;
-  font-size: 1.15em;
-}
-/* Hero Section */
-.hero {
-  position: relative; /* So the ::after can overlay it */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 100vh;
-  box-sizing: border-box;
-  background: radial-gradient(ellipse at bottom, #1E222B 0%, #090a0f 100%)
-}
-
-/* The dark fade overlay */
-.hero::after {
+.P-1::after{
   content: "";
   position: absolute;
-  top: 0; 
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  /* Fade from black at bottom (20%) to transparent at top (80%) */
+  pointer-events: none; 
+  z-index: -1;
   background: linear-gradient(
     to top,
-    #0A0A0C 15%,
-    rgba(0, 0, 0, 0) 40%
+    rgba(0, 0, 0, 0.806)10%,
+    rgba(0, 0, 0, 0.123) 40%
   );
-}
 
-/* Ensure your hero text/content is above the overlay */
-.hero .content {
-  position: relative;
-  z-index: 2;
 }
-
-.content{
-  display: inline-flex;
+.control {
+  position: absolute;
+  bottom: 3vh;
+  right: 2vw;
+  display: flex;
   flex-direction: column;
-  margin: 4%;
+  gap: 0.5vh; 
 }
-.headline {
-  font-size: min(5vw, 70px);
-  background: linear-gradient(to right, #202020, #ffffff 30%, rgba(217, 206, 206, 0) 50%, #000 70%, #232323); /*  Re-animate  */
-  animation: shine 1ms ease-out forwards;
+
+.control-1, .control-2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1vw;
+}
+
+.control svg {
+  width: clamp(6vw, 5.2vw, 7rem);
+  height: auto;
+}
+.highlight{
+  font-style: italic;
+  color:rgb(255, 255, 255);
+  text-shadow: 0 0 25px rgb(255, 255, 255);
+  font-weight: bold;
+
+}
+
+.label{
+  color: white;
+  font-family: "Jura", serif;
+  letter-spacing: 2px;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size:  1.2vw;
+  font-weight: bolder;
+  text-align: right;
+}
+
+
+.top {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top:0;
+    gap: 4vw;
+    padding: 1.2%;
+  }
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 6vw;
+  }
+.nav-link {
+    margin: 0;
+    color: white;
+    font-size: 1.3vh; 
+    text-transform: uppercase;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  .nav-link:hover{
+    opacity: 1;
+    text-shadow: 0 0 10px #ffffff ;
+   }
+.menu {
+    right: 0px;
+    cursor: pointer;
+    width: 5vw;
+    height: 5vh;
+    position: fixed;
+    display: none;
+}
+
+
+.line {
+    border: none;   
+    height: 1px;   
+    width: 30vw;   
+    background-color: #fffffff3;
+    justify-self: middle;
+    opacity: 0.3;
+    
+  }
+
+.head1-1{
+    margin-top: 1.3vw;
+    margin-bottom: var(--level4);
+    font-size: 1.5vw;
+    font-weight: bold;
+    text-align: center;
+    z-index: 100;
+    color: #ffffff; 
+    opacity: 1; 
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.889);
+}
+.sub1-1{
+    font-size: 1.1vw;
+    color:var(--sub); 
+    opacity: 0.7;
+}
+
+
+.background-vid{
+    position: absolute;
+    z-index: -1;
+    background-size:cover;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh; 
+    width: 100vw;
+    filter: brightness(70%);
+}
+.down {
+    fill: white;           
+    width: 4vw;                  
+    position: absolute;
+    bottom: 5%;                  
+    left: 50%;                    
+    animation: bounce 1700ms cubic-bezier(.19,.17,.26,1) infinite;
+    z-index: 100;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translate(-50%, -2vh);
+      opacity: 0;
+    }
+    50% {
+      transform: translate(-50%, 2vh);
+      opacity: 1;
+    }
+  }
+
+.P-2 {
+  background: rgb(0, 0, 0);
+  position: relative;
+  top: 100vh;
+  width: 100vw;
+  height: 50vh;
+  overflow: hidden;
+  justify-items: center;
+  align-items: center;
+  animation: .2s ease-in-out;
+}
+
+.content-2{
+  color: #000000; 
+  color: #FFD700;
+  font-family: "Jura", serif;
+  flex-direction: row;
+  display: inline-flex;
+  letter-spacing: 2%;
+  line-height: 1.5;
+  vertical-align: middle;
+  justify-self: middle;
+  justify-items: middle;
+  align-items: center;
+  margin: 0;
+  top: 0;
+  padding:2vw;
+}
+.content-2 > p{
+  padding: 20px;
+}
+.s-1{
+  background-image: linear-gradient(
+    to right,
+    #54b3d6,
+    #008514 50%,
+    #ffffff 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 10px;
-  font-weight: 600;
-  letter-spacing: 2px;
+  transition: all 0.3s ease-in-out;
 }
-p {
-  font-size: 1.2rem;
-  opacity: 0.5;
-}
-.p2{
-  text-align: center;
+.link1{
   
-
-}
-.page1 {
-  width: 100%;
-  height: 20vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: #FFFFFF;
-  background-color: #0a0a0c;
-  
-}
-
-
-
-/* Hamburger Icon */
-.menu {
-  transform: scaleX(-1);
-  z-index: 9999; /* On top of everything */
-  position: fixed;
-  right: 2%;
-  top: 2%;
-  width: 50px;
-  height: 50px;
-  visibility: hidden;
-  opacity: 0;
+  padding: 50px;
   cursor: pointer;
-  transition: opacity 0.5s ease;
-}
+  width: 40%;
+  text-transform: uppercase;
 
-/* Full-page container - covers the entire page */
-.menu-container {
-  position: fixed;
-  top: 0;
+}
+.s-1:before {
+  content: '';
+  background: #54b3d6;
+  display: block;
+  position: absolute;
+  bottom: -3px;
   left: 0;
-  height: 100vh;
-  width: 100vw;
-
-  /* Start as a tiny circle at top-right (near hamburger).
-     We'll animate to fill entire screen. */
-  clip-path: circle(0% at 95% 5%);
-
-  background-color: rgba(0, 0, 0, 0.95); /* Very dark overlay */
-  transition: clip-path 0.8s ease;
-  z-index: 9998; /* Just behind the hamburger icon (which is 9999) */
-  overflow: hidden;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+}
+.s-1:hover {
+ background-position: 0;
 }
 
-/* When .show-menu is added, expand clip-path to cover entire page */
-.menu-container.show-menu {
-  clip-path: circle(150% at 95% 5%);
+.s-1:hover::before {
+  width:20%;
+}
+.p1{
+  opacity: 0.5;
+  font-weight: 500;
+}
+.sub-2{
+  color: white; 
+  opacity: 0.5;
+  line-height: 1vw;
+}
+.c-2{
+  height: 15%;
+  width: 15%;
+
+}
+.mini{
+  right: 0px;
+  bottom: 0px;
+  color: #FFD700;
 }
 
-/* Menu Items Container */
-.menu-items {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.5rem;
-  padding: 1rem 2rem;
 }
-
-/* Links inside side nav: bigger text */
-.a1 {
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 2rem; /* bigger text */
-  position: relative;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
-}
-
-/* Keep your original "hover" transitions for index + subtitles */
-.menu-link {
-  display: flex;
-  align-items: center;
-}
-
-.menu-index {
-  font-size: 1rem; /* bigger than 10px */
-  font-weight: 300;
-  margin-right: 15px;
-  opacity: 1;
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.1s, opacity 0.5s ease;
-}
-
-/* Title + subtitle bigger or smaller as you like */
-.menu-title {
-  font-size: 1.2rem;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
-}
-
-.menu-subtitle {
-  font-size: 1rem;
-  opacity: 0.7;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
-}
-
-/* Hover Effects */
-.menu-items:hover a:not(:hover) {
-  opacity: 0.4;
-}
-
-.a1:hover {
-  opacity: 1;
-}
-
-.a1:hover .menu-index {
-  transform: translate3d(10px, 0, 0);
-  opacity: 0;
-}
-
-.a1:hover .menu-title {
-  transform: translate3d(6px, 0, 0);
-  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.a1:hover .menu-subtitle {
-  transform: translate3d(6px, 0, 0);
-  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1) 0.1s;
-}
-
-/* Example of your custom text "shine" animation */
-@keyframes shine {
-  0% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@media screen and ( max-width: 1025px) {
-  nav{
+@media only screen and (max-width: 900px){
+  .P-1 , .P-2{
     display: none;
   }
-  
-}
+  body{
+    top:0;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    justify-content: center;    /* Center items horizontally */
+    align-items: center;        /* Center items vertically */
+    text-align: center;
+    background-color: #000000;
+  }
+  .text {
+    display: flex;               /* Enable flex layout */
+    flex-direction: column;      /* Stack content vertically (h1 on top of p) */
+    justify-content: center;     /* Vertically center items */
+    align-items: center;         /* Horizontally center items */
+    height: 100vh;               /* Full viewport height */
+    text-align: center;          /* Center text for good measure */
+    background-color: #000000;   /* Optional background color */
+  }
 
-
-.page2{
-  width: 100%;
-  height: 100vh;
-  font-family: "Jura", serif;
-  color: 2px 2px white;
-  text-shadow: white ;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: large;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  .text h1 {
+    margin: 0 0 1rem 0;         /* Some spacing below the heading */
+  }
 }
