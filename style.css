@@ -107,7 +107,7 @@ body::-webkit-scrollbar {
 
 .label{
   color: white;
-  font-family: "Jura", serif !important; 
+  font-family: "Jura", serif;
   letter-spacing: 2px;
   color: #ffffff;
   margin: 0;
@@ -231,7 +231,7 @@ body::-webkit-scrollbar {
 .content-2{
   color: #000000; 
   color: #FFD700;
-  font-family: "Jura", serif !important; 
+  font-family: "Jura", serif;
   flex-direction: row;
   display: inline-flex;
   letter-spacing: 2%;
