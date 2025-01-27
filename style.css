@@ -171,6 +171,7 @@ body::-webkit-scrollbar {
     font-size: 1.5vw;
     font-weight: bold;
     text-align: center;
+    font-family: "Jura", serif;
     z-index: 100;
     color: #ffffff; 
     opacity: 1; 
