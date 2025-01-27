@@ -160,54 +160,13 @@
 
 </body>
 </html>
-
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis"></script>
 <script>
-
-  const x = new Lenis({
-    smooth: true,
-    direction: 'vertical',
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothTouch: true,
-    touchMultiplier: 2,
-  });
-
+  // history.scrollRestoration = "manual"
+  const x = new Lenis({smooth: true,direction: 'vertical',duration: 1.2,easing: (t) => Math.min(2, 0.999 - Math.pow(2, -11 * t)),smoothTouch: true, touchMultiplier: 2,});
   function raf(time) {
     x.raf(time);
-    requestAnimationFrame(raf);
-  }
-
-  requestAnimationFrame(raf);
+    requestAnimationFrame(raf);}
+requestAnimationFrame(raf);
 </script>
 
-<script>
-  import Lenis from '@studio-freight/lenis'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
-
-const lenis = new Lenis({
-
-})
-
-
-function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
-  ScrollTrigger.update()
-}
-requestAnimationFrame(raf)
-
-ScrollTrigger.create({
-  trigger: ".P-1",
-  start: "top top",
-  end: "bottom top",
-  pin: true
-})
-const scroll = new LocomotiveScroll({
-    el: document.querySelector('[data-scroll-container]'),
-    smooth: true
-});
-</script>
