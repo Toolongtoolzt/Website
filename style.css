@@ -293,6 +293,7 @@ body::-webkit-scrollbar {
   opacity: 0.7;
   font-weight: 800;
   color: #C09F68;
+  letter-spacing: 1px; 
 }
 .sub-2{
   color: white; 
