@@ -1,7 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+
 @media only screen and (min-width: 900px) {
-
-
-@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
 :root{
   --darken: 
     --black: #212121; 
